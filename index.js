@@ -175,9 +175,22 @@ function skorTabelasi(periyotSkoruFunc, takimSkoruFunc, oynanacakCeyrek) {
     
 
   }
+  if (evSahibi !== konukTakim) {
+    sonucTab.push(`Maç sonucu Ev Sahibi Takım: ${evSahibi} Konuk Takım : ${konukTakim}`);
+  } else {
+  let sonuc1 = periyotSkoruFunc(takimSkoruFunc).EvSahibi;
+  let sonuc2 = periyotSkoruFunc(takimSkoruFunc).KonukTakim;
+  evSahibi +=sonuc1;
+  konukTakim +=sonuc2;
+  sonucTab.push(`1. Uzatma Ev Sahibi Takım: ${sonuc1} - Konuk Takım : ${sonuc2}`  );
   sonucTab.push(`Maç sonucu Ev Sahibi Takım: ${evSahibi} Konuk Takım : ${konukTakim}`);
- return sonucTab;
+
+}
  
+  
+return sonucTab;
+  
+
 }
 
 console.log(skorTabelasi(periyotSkoru,takimSkoru,4));
