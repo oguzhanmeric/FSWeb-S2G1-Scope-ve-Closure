@@ -167,10 +167,20 @@ function skorTabelasi(periyotSkoruFunc, takimSkoruFunc, oynanacakCeyrek) {
   let evSahibi = 0;
   let konukTakim =0;
   for (let i = 1; i<= oynanacakCeyrek; i++) {
+   let sonuc1 = periyotSkoruFunc(takimSkoruFunc).EvSahibi;
+   let sonuc2 = periyotSkoruFunc(takimSkoruFunc).KonukTakim;
+   sonucTab.push(` ${i} . periyod Ev Sahibi Takım : ${sonuc1} Konuk Takım : ${sonuc2}`);
+   evSahibi +=sonuc1;
+   konukTakim +=sonuc2;
+    
+
   }
-  /*Kodunuzu buraya yazınız*/
+  sonucTab.push(`Maç sonucu Ev Sahibi Takım: ${evSahibi} Konuk Takım : ${konukTakim}`);
+ return sonucTab;
+ 
 }
 
+console.log(skorTabelasi(periyotSkoru,takimSkoru,4));
 
 
 
