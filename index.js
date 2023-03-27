@@ -20,6 +20,10 @@ function ilkiniDon(stringArray, callback) {
 }
 console.log('örnek görev:', ilkiniDon(['as','sa'],function(metin){return metin+metin}));
 
+console.log(ilkiniDon(['as', 'sa'], function(metin)
+ {return metin+metin;
+}));
+
 // Başlangıç Challenge'ı Sonu
 
 
@@ -64,10 +68,13 @@ Aşağıdaki takimSkoru() fonksiyonununda aşağıdakileri yapınız:
 Not: Bu fonskiyon, aşağıdaki diğer görevler için de bir callback fonksiyonu olarak da kullanılacak
 */
 
-function takimSkoru(/*Kodunuzu buraya yazınız*/){
+function takimSkoru(){
+  return Math.floor(Math.random()*16 + 10); 
     /*Kodunuzu buraya yazınız*/
 }
 
+takimSkoru();
+console.log(takimSkoru());
 
 
 
@@ -86,10 +93,18 @@ Aşağıdaki macSonucu() fonksiyonununda aşağıdakileri yapınız:
 }
 */ 
 
-function macSonucu(/*Kodunuzu buraya yazınız*/){
+function macSonucu(takimSkorFunc, ceyrekSayisi){
+  let evSahibiSkor = 0;
+  let konukTakimSkor = 0;
+  for (let i = 1; i <=ceyrekSayisi; i++) {
+    evSahibiSkor += takimSkorFunc();
+    konukTakimSkor += takimSkorFunc();
+  }
+  return {"EvSahibi": evSahibiSkor,
+  "KonukTakim" : konukTakimSkor};
   /*Kodunuzu buraya yazınız*/
 }
-
+console.log(macSonucu(takimSkoru, 4)); 
 
 
 
@@ -109,10 +124,11 @@ Aşağıdaki periyotSkoru() fonksiyonununda aşağıdakileri yapınız:
   */
 
 
-function periyotSkoru(/*Kodunuzu buraya yazınız*/) {
-  /*Kodunuzu buraya yazınız*/
-
+function periyotSkoru(cb_takimSkoru) {
+  return { "EvSahibi": cb_takimSkoru(),
+  "KonukTakim": cb_takimSkoru() };
 }
+console.log(periyotSkoru(takimSkoru));
 
 
 /* Zorlayıcı Görev 5: skorTabelasi() 
@@ -146,7 +162,12 @@ MAÇ UZAR ise skorTabelasi(periyotSkoru,takimSkoru,4)
 ] */
 // NOTE: Bununla ilgili bir test yoktur. Eğer logladığınız sonuçlar yukarıdakine benziyor ise tmamlandı sayabilirsiniz.
 
-function skorTabelasi(/*Kodunuzu buraya yazınız*/) {
+function skorTabelasi(periyotSkoruFunc, takimSkoruFunc, oynanacakCeyrek) {
+  let sonucTab = [];
+  let evSahibi = 0;
+  let konukTakim =0;
+  for (let i = 1; i<= oynanacakCeyrek; i++) {
+  }
   /*Kodunuzu buraya yazınız*/
 }
 
